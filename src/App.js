@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Col, Row, Container } from "react-bootstrap";
+import FormComp from "./components/FormComp";
+import TimeList from "./components/TimeList";
+import TotalTime from "./components/TotalTime";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col><h1 className="text-center mt-4">Time Calculator</h1></Col>
+      </Row>
+      <Row className="mt-4">
+        <Col>
+          <FormComp />
+          <TotalTime />
+        </Col>
+        <Col>
+          <TimeList />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

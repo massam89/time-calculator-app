@@ -6,7 +6,7 @@ const initialState = {
     list: [],
     hour: '',
     minute: '',
-    total: ''
+    total: '00:00'
 }
 
 const reduceFun = (state, action) => {
@@ -21,7 +21,8 @@ const reduceFun = (state, action) => {
     }
     if(action.type === 'ADD-TO-LIST'){
         return {...state, list:[...state.list, `${state.hour}:${state.minute}`]}
-    }if(action.type === 'CALCULATE-TOTAL-TIME'){
+    }
+    if(action.type === 'CALCULATE-TOTAL-TIME'){
         const preparedList = state.list.map(item => {
             const splitItem = item.split(':')
             const hour = +splitItem[0]
@@ -37,6 +38,9 @@ const reduceFun = (state, action) => {
 
         const preparedTotal = `${realHour}:${realMinute}`;
         return {...state, total: preparedTotal}
+    }
+    if(action.type === 'CLEAR-LIST'){
+        return {...state, list: []}
     }
 
     return initialState
@@ -63,10 +67,20 @@ const ContextProvider = (props) => {
         }   
     }
 
+    const clearList = () => {
+        if(window.confirm('All data will be removed, Are you sure to continue?')){
+           dispatch({type: 'CLEAR-LIST'})
+           dispatch({type: 'CLEAR-INPUTS'})
+           dispatch({type: 'CALCULATE-TOTAL-TIME'})
+           alert('Reset Done!') 
+        }
+    }
+
     const store = {
         state,
         updateFormStates,
-        addItemToList
+        addItemToList,
+        clearList
     }
 
     return(<Context.Provider value={store}>{props.children}</Context.Provider>)

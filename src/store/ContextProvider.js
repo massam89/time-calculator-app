@@ -75,11 +75,14 @@ const ContextProvider = (props) => {
     }
 
     const clearList = () => {
-        if(window.confirm('All data will be removed, Are you sure to continue?')){
+        if(state.list.length !== 0){
+           if(window.confirm('All data will be removed, Are you sure to continue?')){
            dispatch({type: 'CLEAR-LIST'})
            dispatch({type: 'CLEAR-INPUTS'})
            alert('Reset Done!') 
+           } 
         }
+        
     }
 
     const deleteItem = (item) => dispatch({type: 'DELETE-ITEM', payload: item})

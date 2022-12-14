@@ -8,7 +8,7 @@ const Help = () => {
         <Card.Body>
           <Card.Title>
           <ListGroup as="ul" style={{fontSize: '14px'}}>
-            <ListGroup.Item as="li">Tab Key: change focus between inputs</ListGroup.Item>
+            <ListGroup.Item as="li">Tab Key: Change focusing between inputs</ListGroup.Item>
             <ListGroup.Item as="li">Escape Key: Reset App</ListGroup.Item>
             <ListGroup.Item as="li">Enter Key: Add time to list</ListGroup.Item>
           </ListGroup>

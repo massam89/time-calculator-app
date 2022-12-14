@@ -5,11 +5,11 @@ import { Context } from "../store/ContextProvider";
 const TotalTime = () => {
   const {state} = useContext(Context)
   return (
-    <Row className="mt-5">
+    <Row className="mt-4">
       <Card>
         <Card.Header>Total Time</Card.Header>
         <Card.Body>
-          <Card.Title>{state.total}</Card.Title>
+          <Card.Title><span className="h2">{state.total}</span></Card.Title>
         </Card.Body>
       </Card>
     </Row>

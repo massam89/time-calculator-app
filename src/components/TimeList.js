@@ -4,9 +4,7 @@ import { Context } from "../store/ContextProvider";
 
 const TimeList = () => {
   const {state, deleteItem} = useContext(Context)
-
-
-
+  
   return (
     <ListGroup as="ul">
       {state.list.map((item, index) => <ListGroup.Item key={index} as="li">
